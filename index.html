@@ -63,7 +63,7 @@
 		<!--<p style="background: {{value.randomColor}};margin: 0;">&nbsp;</p>-->
 		<script id="imageList" type="text/html">
 			{{each list value i}}
-			<div class="item" data-order="{{i}}">
+			<div class="item {{data.type}}" data-order="{{i}}">
 				<img src='{{value.url}}' onerror="javascript:removeImage(this);" style="width: 100%; height: auto;" />
 			</div>
 			{{/each}}
@@ -129,6 +129,7 @@
 				for(i = 50; i >= 1; i--) {
 					var imageInfo = {
 						"url": "画作/" + "长" + i + ".jpg",
+						"type": "长",
 						"randomColor": randomColor()
 					};
 					v.push(imageInfo);
@@ -136,16 +137,19 @@
 				for(i = 10; i >= 1; i--) {
 					var imageInfo = {
 						"url": "画作/" + "横" + i + ".jpg",
+						"type": "横",
 						"randomColor": randomColor()
 					};
 					v.push(imageInfo);
 					imageInfo = {
 						"url": "画作/" + "扇" + i + ".jpg",
+						"type": "扇",
 						"randomColor": randomColor()
 					};
 					v.push(imageInfo);
 					imageInfo = {
 						"url": "画作/" + "折" + i + ".jpg",
+						"type": "折",
 						"randomColor": randomColor()
 					};
 					v.push(imageInfo);
@@ -153,6 +157,7 @@
 				for(i = 20; i >= 1; i--) {
 					var imageInfo = {
 						"url": "画作/" + "圆" + i + ".jpg",
+						"type": "圆",
 						"randomColor": randomColor()
 					};
 					v.push(imageInfo);
