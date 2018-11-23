@@ -25,22 +25,22 @@
 			<div class="container" style="min-height: 100%;">
 				<ul id="myTab" class="nav nav-tabs">
 					<li class="active">
-						<a onclick="loadAllImage();" href="javascript:void(0)" data-toggle="tab">全部类型</a>
+						<a onclick="showAllImage();" href="javascript:void(0)" data-toggle="tab">全部类型</a>
 					</li>
 					<li>
-						<a onclick="loadImage('长',50);" href="javascript:void(0)" data-toggle="tab">长幅</a>
+						<a onclick="showImage('长',50);" href="javascript:void(0)" data-toggle="tab">长幅</a>
 					</li>
 					<li>
-						<a onclick="loadImage('横',10);" href="javascript:void(0)" data-toggle="tab">横幅</a>
+						<a onclick="showImage('横',10);" href="javascript:void(0)" data-toggle="tab">横幅</a>
 					</li>
 					<li>
-						<a onclick="loadImage('圆',20);" href="javascript:void(0)" data-toggle="tab">圆幅</a>
+						<a onclick="showImage('圆',20);" href="javascript:void(0)" data-toggle="tab">圆幅</a>
 					</li>
 					<li>
-						<a onclick="loadImage('扇',10);" href="javascript:void(0)" data-toggle="tab">扇面</a>
+						<a onclick="showImage('扇',10);" href="javascript:void(0)" data-toggle="tab">扇面</a>
 					</li>
 					<li>
-						<a onclick="loadImage('折',10);" href="javascript:void(0)" data-toggle="tab">折扇</a>
+						<a onclick="showImage('折',10);" href="javascript:void(0)" data-toggle="tab">折扇</a>
 					</li>
 				</ul>
 				<div class="" id="my-gallery-container">
@@ -69,6 +69,18 @@
 			{{/each}}
 		</script>
 		<script type="text/javascript">
+			function showAllImage(){
+				$('.item').each(function(){
+					$(this).parant().show();
+				})
+			}
+			function showImage(name, number) {
+				$('.item').each(function(){
+					if($(this).hasClass(name)){
+					$(this).parant().show();
+					}else{$(this).parant().hide();}
+				})
+			}
 			function loadImage(name, number) {
 				var s = {};
 				var v = new Array();
