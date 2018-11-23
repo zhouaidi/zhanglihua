@@ -70,16 +70,12 @@
 		</script>
 		<script type="text/javascript">
 			function showAllImage(){
-				$('.item').each(function(){
-					$(this).parent().show();
-				})
+				$('.item').show();
 			}
 			function showImage(name, number) {
-				$('.item').each(function(){
-					if($(this).hasClass(name)){
-					$(this).parent().show();
-					}else{$(this).parent().hide();}
-				})
+				$('.item').hide();
+				$('.'+name).show();
+				
 			}
 			function loadImage(name, number) {
 				var s = {};
