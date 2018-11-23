@@ -63,7 +63,7 @@
 		<!--<p style="background: {{value.randomColor}};margin: 0;">&nbsp;</p>-->
 		<script id="imageList" type="text/html">
 			{{each list value i}}
-			<div class="item {{data.type}}" data-order="{{i}}">
+			<div class="item {{value.type}}" data-order="{{i}}">
 				<img src='{{value.url}}' onerror="javascript:removeImage(this);" style="width: 100%; height: auto;" />
 			</div>
 			{{/each}}
