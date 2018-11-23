@@ -71,14 +71,14 @@
 		<script type="text/javascript">
 			function showAllImage(){
 				$('.item').each(function(){
-					$(this).parant().show();
+					$(this).parent().show();
 				})
 			}
 			function showImage(name, number) {
 				$('.item').each(function(){
 					if($(this).hasClass(name)){
-					$(this).parant().show();
-					}else{$(this).parant().hide();}
+					$(this).parent().show();
+					}else{$(this).parent().hide();}
 				})
 			}
 			function loadImage(name, number) {
