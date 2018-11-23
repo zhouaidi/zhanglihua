@@ -31,16 +31,16 @@
 						<a onclick="loadImage('长',50);" href="javascript:void(0)" data-toggle="tab">长幅</a>
 					</li>
 					<li>
-						<a onclick="loadImage('横',50);" href="javascript:void(0)" data-toggle="tab">横幅</a>
+						<a onclick="loadImage('横',10);" href="javascript:void(0)" data-toggle="tab">横幅</a>
 					</li>
 					<li>
-						<a onclick="loadImage('圆',50);" href="javascript:void(0)" data-toggle="tab">圆幅</a>
+						<a onclick="loadImage('圆',20);" href="javascript:void(0)" data-toggle="tab">圆幅</a>
 					</li>
 					<li>
-						<a onclick="loadImage('扇',50);" href="javascript:void(0)" data-toggle="tab">扇面</a>
+						<a onclick="loadImage('扇',10);" href="javascript:void(0)" data-toggle="tab">扇面</a>
 					</li>
 					<li>
-						<a onclick="loadImage('折',50);" href="javascript:void(0)" data-toggle="tab">折扇</a>
+						<a onclick="loadImage('折',10);" href="javascript:void(0)" data-toggle="tab">折扇</a>
 					</li>
 				</ul>
 				<div class="" id="my-gallery-container">
@@ -72,7 +72,7 @@
 			function loadImage(name, number) {
 				var s = {};
 				var v = new Array();
-				for(i = 1; i <= number; i++) {
+				for(i = number; i > 1; i--) {
 					var imageInfo = {
 						"url": "画作/" + name + i + ".jpg",
 						"randomColor": randomColor()
