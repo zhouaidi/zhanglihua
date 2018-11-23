@@ -126,19 +126,15 @@
 			function loadAllImage() {
 				var s = {};
 				var v = new Array();
-				for(i = 1; i <= 50; i++) {
+				for(i = 50; i > 1; i--) {
 					var imageInfo = {
 						"url": "画作/" + "长" + i + ".jpg",
 						"randomColor": randomColor()
 					};
-					v.push(imageInfo);
-					imageInfo = {
+				}
+				for(i = 10; i > 1; i--) {
+					var imageInfo = {
 						"url": "画作/" + "横" + i + ".jpg",
-						"randomColor": randomColor()
-					};
-					v.push(imageInfo);
-					imageInfo = {
-						"url": "画作/" + "圆" + i + ".jpg",
 						"randomColor": randomColor()
 					};
 					v.push(imageInfo);
@@ -149,6 +145,13 @@
 					v.push(imageInfo);
 					imageInfo = {
 						"url": "画作/" + "折" + i + ".jpg",
+						"randomColor": randomColor()
+					};
+					v.push(imageInfo);
+				}
+				for(i = 20; i > 1; i--) {
+					var imageInfo = {
+						"url": "画作/" + "圆" + i + ".jpg",
 						"randomColor": randomColor()
 					};
 					v.push(imageInfo);
