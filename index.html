@@ -28,19 +28,19 @@
 						<a onclick="showAllImage();" href="javascript:void(0)" data-toggle="tab">全部类型</a>
 					</li>
 					<li>
-						<a onclick="showImage('长',56);" href="javascript:void(0)" data-toggle="tab">长幅</a>
+						<a onclick="showImage('长');" href="javascript:void(0)" data-toggle="tab">长幅</a>
 					</li>
 					<li>
-						<a onclick="showImage('横',11);" href="javascript:void(0)" data-toggle="tab">横幅</a>
+						<a onclick="showImage('横');" href="javascript:void(0)" data-toggle="tab">横幅</a>
 					</li>
 					<li>
-						<a onclick="showImage('圆',20);" href="javascript:void(0)" data-toggle="tab">圆幅</a>
+						<a onclick="showImage('圆');" href="javascript:void(0)" data-toggle="tab">圆幅</a>
 					</li>
 					<li>
-						<a onclick="showImage('扇',10);" href="javascript:void(0)" data-toggle="tab">扇面</a>
+						<a onclick="showImage('扇');" href="javascript:void(0)" data-toggle="tab">扇面</a>
 					</li>
 					<li>
-						<a onclick="showImage('折',10);" href="javascript:void(0)" data-toggle="tab">折扇</a>
+						<a onclick="showImage('折');" href="javascript:void(0)" data-toggle="tab">折扇</a>
 					</li>
 				</ul>
 				<div class="" id="my-gallery-container">
@@ -69,28 +69,19 @@
 			{{/each}}
 		</script>
 		<script type="text/javascript">
+		    var shan = 4;
+			var heng = 16;
+			var yuan = 8;
+			var chang = 39;
+			var zhe = 3;
+			
 			function showAllImage(){
 				$('.item').show();
 			}
-			function showImage(name, number) {
+			function showImage(name) {
 				$('.item').hide();
 				$('.'+name).show();
 				
-			}
-			function loadImage(name, number) {
-				var s = {};
-				var v = new Array();
-				for(i = number; i >= 1; i--) {
-					var imageInfo = {
-						"url": "画作/" + name + i + ".jpg",
-						"randomColor": randomColor()
-					};
-					v.push(imageInfo);
-				}
-				s["list"] = v;
-				var ssss = template('imageList', s);
-				$("#my-gallery-container").html(ssss);
-				loadpubu();
 			}
 
 			jQuery(document).ready(function($) {
@@ -134,38 +125,42 @@
 			function loadAllImage() {
 				var s = {};
 				var v = new Array();
-				for(i = 56; i >= 1; i--) {
+				for(i = chang; i >= 1; i--) {
 					var imageInfo = {
-						"url": "画作/" + "长" + i + ".jpg",
+						"url": "画作/" + "长/" + i + ".jpg",
 						"type": "长",
 						"randomColor": randomColor()
 					};
 					v.push(imageInfo);
 				}
-				for(i = 11; i >= 1; i--) {
+				for(i = shan; i >= 1; i--) {
 					var imageInfo = {
-						"url": "画作/" + "横" + i + ".jpg",
-						"type": "横",
-						"randomColor": randomColor()
-					};
-					v.push(imageInfo);
-					imageInfo = {
-						"url": "画作/" + "扇" + i + ".jpg",
+						"url": "画作/" + "扇/" + i + ".jpg",
 						"type": "扇",
 						"randomColor": randomColor()
 					};
 					v.push(imageInfo);
-					imageInfo = {
-						"url": "画作/" + "折" + i + ".jpg",
-						"type": "折",
+				}
+				for(i = heng; i >= 1; i--) {
+					var imageInfo = {
+						"url": "画作/" + "横/" + i + ".jpg",
+						"type": "横",
 						"randomColor": randomColor()
 					};
 					v.push(imageInfo);
 				}
-				for(i = 20; i >= 1; i--) {
+				for(i = yuan; i >= 1; i--) {
 					var imageInfo = {
-						"url": "画作/" + "圆" + i + ".jpg",
+						"url": "画作/" + "圆/" + i + ".jpg",
 						"type": "圆",
+						"randomColor": randomColor()
+					};
+					v.push(imageInfo);
+				}
+				for(i = zhe; i >= 1; i--) {
+					var imageInfo = {
+						"url": "画作/" + "折/" + i + ".jpg",
+						"type": "折",
 						"randomColor": randomColor()
 					};
 					v.push(imageInfo);
