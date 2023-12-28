@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>麗華更新画作</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="src/mp.mansory.js"></script>
+		<script type="text/javascript" src="js/template.js"></script>
+	</head>
+
+	<body style="overflow-y: none;height: 100%;">
+		<div class="htmleaf-container">
+			<header class="htmleaf-header">
+				<h1>麗華更新画作 <span style="letter-spacing:0.2em;line-height:20px">
+				聚气凝神落笔尖，
+鸟语花香现手端。</span></h1>
+			</header>
+			<div class="container" style="min-height: 100%;">
+				<ul id="myTab" class="nav nav-tabs">
+					<li class="active">
+						<a onclick="showAllImage();" href="javascript:void(0)" data-toggle="tab">全部类型</a>
+					</li>
+					<li>
+						<a onclick="showImage('长');" href="javascript:void(0)" data-toggle="tab">长幅</a>
+					</li>
+					<li>
+						<a onclick="showImage('横');" href="javascript:void(0)" data-toggle="tab">横幅</a>
+					</li>
+					<li>
+						<a onclick="showImage('圆');" href="javascript:void(0)" data-toggle="tab">圆幅</a>
+					</li>
+					<li>
+						<a onclick="showImage('扇');" href="javascript:void(0)" data-toggle="tab">扇面</a>
+					</li>
+					<li>
+						<a onclick="showImage('折');" href="javascript:void(0)" data-toggle="tab">折扇</a>
+					</li>
+				</ul>
+				<div class="" id="my-gallery-container">
+				</div>
+			</div>
+			<div class="related">
+				<h3>如果你喜欢这些画，请添加微信号：wxid_8tcp3neb1q0022<span style="font-size: 10px;">（请在加好友时备注"网站"）</span></h3>
+				<!--
+				<a href="jQuery/pubuliuchajian/201601093003.html">
+					<img src="related/1.jpg" width="300" />
+					<h3>微信号：××××××××××××</h3>
+				</a>
+				<a href="jQuery/pubuliuchajian/201506061981.html">
+					<img src="related/2.jpg" width="300" />
+					<h3></h3>
+				</a>-->
+			</div>
+		</div>
+
+		<!--<p style="background: {{value.randomColor}};margin: 0;">&nbsp;</p>-->
+		<script id="imageList" type="text/html">
+			{{each list value i}}
+			<div class="item {{value.type}}" data-order="{{i}}">
+				<img src='{{value.url}}' onerror="javascript:removeImage(this);" style="width: 100%; height: auto;" />
+			</div>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+		    	var shan = 4;
+			var heng = 24;
+			var yuan = 8;
+			var chang = 92;
+			var zhe = 3;
+			
+			function showAllImage(){
+				$('.item').show();
+			}
+			function showImage(name) {
+				$('.item').hide();
+				$('.'+name).show();
+				
+			}
+
+			jQuery(document).ready(function($) {
+				loadAllImage();
+				loadpubu();
+			});
+
+			function loadpubu() {
+				$("#my-gallery-container").mpmansory({
+					childrenClass: 'item', // default is a div
+					columnClasses: 'padding', //add classes to items
+					breakpoints: {
+						lg: 3,
+						md: 4,
+						sm: 6,
+						xs: 12
+					},
+					distributeBy: {
+						order: false,
+						height: false,
+						attr: 'data-order',
+						attrOrder: 'asc'
+					}, //default distribute by order, options => order: true/false, height: true/false, attr => 'data-order', attrOrder=> 'asc'/'desc'
+					onload: function(items) {
+						//make somthing with items
+					}
+				});
+			}
+
+			function randomColor() {
+				var r = Math.floor(Math.random() * 256);
+				var g = Math.floor(Math.random() * 256);
+				var b = Math.floor(Math.random() * 256);
+				return "rgb(" + r + ',' + g + ',' + b + ")"; //所有方法的拼接都可以用ES6新特性`其他字符串{$变量名}`替换
+			}
+
+			function removeImage(image) {
+				image.parentNode.parentNode.removeChild(image.parentNode);
+			}
+
+			function loadAllImage() {
+				var s = {};
+				var v = new Array();
+				for(i = chang; i >= 1; i--) {
+					var imageInfo = {
+						"url": "画作/" + "长/" + i + ".jpg",
+						"type": "长",
+						"randomColor": randomColor()
+					};
+					v.push(imageInfo);
+				}
+				for(i = shan; i >= 1; i--) {
+					var imageInfo = {
+						"url": "画作/" + "扇/" + i + ".jpg",
+						"type": "扇",
+						"randomColor": randomColor()
+					};
+					v.push(imageInfo);
+				}
+				for(i = heng; i >= 1; i--) {
+					var imageInfo = {
+						"url": "画作/" + "横/" + i + ".jpg",
+						"type": "横",
+						"randomColor": randomColor()
+					};
+					v.push(imageInfo);
+				}
+				for(i = yuan; i >= 1; i--) {
+					var imageInfo = {
+						"url": "画作/" + "圆/" + i + ".jpg",
+						"type": "圆",
+						"randomColor": randomColor()
+					};
+					v.push(imageInfo);
+				}
+				for(i = zhe; i >= 1; i--) {
+					var imageInfo = {
+						"url": "画作/" + "折/" + i + ".jpg",
+						"type": "折",
+						"randomColor": randomColor()
+					};
+					v.push(imageInfo);
+				}
+				s["list"] = v;
+				var ssss = template('imageList', s);
+				$("#my-gallery-container").html(ssss);
+				loadpubu();
+			}
+		</script>
+	</body>
+
+</html>
